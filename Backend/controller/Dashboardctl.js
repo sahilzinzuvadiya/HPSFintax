@@ -1,6 +1,6 @@
 const User = require("../model/User");
 const Client = require("../model/Client");
-import mongoose from "mongoose";
+
 
 export const getAdminDashboardStats = async (req, res) => {
   try {
