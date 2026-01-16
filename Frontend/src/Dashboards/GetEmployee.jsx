@@ -13,7 +13,7 @@ export default function GetEmployee() {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get("http://localhost:1005/auth/employees", {
+      const res = await axios.get("https://hpsfintax-7.onrender.com/auth/employees", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

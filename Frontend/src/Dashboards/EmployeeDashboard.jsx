@@ -39,7 +39,7 @@ export default function EmployeeDashboard() {
     const fetchDashboard = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:1005/dashboard/employee",
+          "https://hpsfintax-7.onrender.com/dashboard/employee",
           {
             headers: {
               Authorization:

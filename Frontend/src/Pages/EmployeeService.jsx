@@ -4,7 +4,7 @@ export default function EmployeeService({ client, service }) {
 
   const updateStatus = async (subIndex, status) => {
     await axios.patch(
-      "http://localhost:1005/client/update-substep",
+      "https://hpsfintax-7.onrender.com/client/update-substep",
       {
         clientId: client._id,
         stepKey: service.key,

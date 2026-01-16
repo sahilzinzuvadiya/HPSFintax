@@ -36,7 +36,7 @@ export default function Client() {
     const fetchPanel = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:1005/client/client-panel",
+          "https://hpsfintax-7.onrender.com/client/client-panel",
           {
             headers: { Authorization: `Bearer ${token}` }
           }

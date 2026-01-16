@@ -56,7 +56,7 @@ export default function ChangePassword() {
 
     try {
       await axios.post(
-        "http://localhost:1005/auth/change-password",
+        "https://hpsfintax-7.onrender.com/auth/change-password",
         { password: form.password },
         {
           headers: {

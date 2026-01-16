@@ -16,7 +16,6 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 /* ================= DB CONNECTION ================= */
 connectDB();
 
-/* ================= INIT MAIL (IMPORTANT) ================= */
 
 
 /* ================= ROUTES ================= */

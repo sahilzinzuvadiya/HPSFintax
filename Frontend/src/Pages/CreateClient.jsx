@@ -33,7 +33,7 @@ export default function CreateClient() {
     const fetchClient = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:1005/client/admin/client/${clientId}`,
+          `https://hpsfintax-7.onrender.com/client/admin/client/${clientId}`,
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token")
@@ -101,7 +101,7 @@ export default function CreateClient() {
 
       if (isEdit) {
         await axios.patch(
-          `http://localhost:1005/client/admin/client/${clientId}`,
+          `https://hpsfintax-7.onrender.com/client/admin/client/${clientId}`,
           form,
           {
             headers: {
@@ -113,7 +113,7 @@ export default function CreateClient() {
         toast.success("Client updated successfully");
       } else {
         const res = await axios.post(
-          "http://localhost:1005/client/create",
+          "https://hpsfintax-7.onrender.com/client/create",
           {
             ...form,
             startFrom

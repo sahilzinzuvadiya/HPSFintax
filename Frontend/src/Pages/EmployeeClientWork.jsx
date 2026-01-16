@@ -28,8 +28,8 @@ export default function EmployeeClientWork() {
 
       const url =
         user?.role === "admin"
-          ? `http://localhost:1005/client/admin/client/${clientId}`
-          : `http://localhost:1005/client/employee/client/${clientId}`;
+          ? `https://hpsfintax-7.onrender.com/client/admin/client/${clientId}`
+          : `https://hpsfintax-7.onrender.com/client/employee/client/${clientId}`;
 
       const res = await axios.get(url, {
         headers: {
@@ -105,7 +105,7 @@ export default function EmployeeClientWork() {
 
     try {
       await axios.patch(
-        "http://localhost:1005/client/update-service-work",
+        "https://hpsfintax-7.onrender.com/client/update-service-work",
         {
           clientId,
           serviceKey,

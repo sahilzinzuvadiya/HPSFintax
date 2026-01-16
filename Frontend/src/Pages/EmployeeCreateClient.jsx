@@ -64,7 +64,7 @@ export default function EmployeeCreateClient() {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:1005/client/employee/client-request", // ✅ FIXED
+        "https://hpsfintax-7.onrender.com/client/employee/client-request", // ✅ FIXED
         {
           name: form.name.trim(),
           email: form.email.trim().toLowerCase(),

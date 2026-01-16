@@ -37,7 +37,7 @@ export default function ClientDashboard() {
     }
 
     axios
-      .get("http://localhost:1005/dashboard/client", {
+      .get("https://hpsfintax-7.onrender.com/dashboard/client", {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => setData(res.data))

@@ -12,7 +12,7 @@ export default function ClientRequest() {
   const fetchRequests = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:1005/client/admin/client-requests",
+        "https://hpsfintax-7.onrender.com/client/admin/client-requests",
         {
           headers: {
             Authorization:
@@ -36,7 +36,7 @@ export default function ClientRequest() {
   const approve = async (id) => {
     try {
       const res = await axios.post(
-        `http://localhost:1005/client/admin/client-requests/${id}/approve`,
+        `https://hpsfintax-7.onrender.com/client/admin/client-requests/${id}/approve`,
         {},
         {
           headers: {
@@ -59,7 +59,7 @@ export default function ClientRequest() {
   const reject = async (id) => {
     try {
       await axios.patch(
-        `http://localhost:1005/client/admin/client-requests/${id}/reject`,
+        `https://hpsfintax-7.onrender.com/client/admin/client-requests/${id}/reject`,
         {},
         {
           headers: {

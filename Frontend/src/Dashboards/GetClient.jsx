@@ -30,7 +30,7 @@ export default function GetClient() {
   const fetchClients = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:1005/client/admin/clients",
+        "https://hpsfintax-7.onrender.com/client/admin/clients",
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token")
@@ -49,7 +49,7 @@ export default function GetClient() {
     if (!window.confirm("Delete this client?")) return;
     try {
       await axios.delete(
-        `http://localhost:1005/client/admin/client/${id}`,
+        `https://hpsfintax-7.onrender.com/client/admin/client/${id}`,
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token")
@@ -78,7 +78,7 @@ export default function GetClient() {
       console.log("SERVICE:", service);
 
       await axios.post(
-        `http://localhost:1005/client/${selectedClient._id}/add-service`,
+        `https://hpsfintax-7.onrender.com/client/${selectedClient._id}/add-service`,
         {
           serviceKey: service
         },

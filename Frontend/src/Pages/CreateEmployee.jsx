@@ -48,7 +48,7 @@ export default function CreateEmployee() {
       const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        "http://localhost:1005/auth/create-user",
+        "https://hpsfintax-7.onrender.com/auth/create-user",
         { ...form, role: "employee" },
         {
           headers: {

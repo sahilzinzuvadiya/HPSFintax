@@ -17,7 +17,7 @@ export default function Login() {
 
   try {
     const res = await axios.post(
-      "http://localhost:1005/auth/login",
+      "https://hpsfintax-7.onrender.com/auth/login",
       form
     );
 

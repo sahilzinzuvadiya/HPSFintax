@@ -18,7 +18,7 @@ export default function EmployeeWork() {
   const fetchEmployeeWork = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:1005/auth/employee-work",
+        "https://hpsfintax-7.onrender.com/auth/employee-work",
         {
           headers: {
             Authorization:

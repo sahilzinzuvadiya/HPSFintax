@@ -10,7 +10,7 @@ export default function EmployeeMyClient() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1005/client/employee/clients", {
+      .get("https://hpsfintax-7.onrender.com/client/employee/clients", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token")
         }
