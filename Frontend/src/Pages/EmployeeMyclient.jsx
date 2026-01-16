@@ -9,45 +9,52 @@ export default function EmployeeMyClient() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-      setLoading(true);
+    setLoading(true);
+
     axios
       .get("https://hpsfintax-7.onrender.com/client/employee/clients", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token")
         }
       })
-      .then(res => setClients(res.data || []))
+      .then(res => {
+        setClients(res.data || []);
+      })
       .catch(err => {
         console.error(err);
         setClients([]);
+      })
+      .finally(() => {
+        setLoading(false); // ✅ VERY IMPORTANT
       });
   }, []);
 
-   if (loading) {
+  /* ================= LOADER ================= */
+  if (loading) {
     return (
-        <div className="fixed inset-0 z-[9999] bg-slate-50 flex items-center justify-center">
-      <div className="flex flex-col items-center gap-5">
+      <div className="fixed inset-0 z-[9999] bg-slate-50 flex items-center justify-center">
+        <div className="flex flex-col items-center gap-5">
 
-        {/* Logo / Brand */}
-        <div className="text-3xl font-bold tracking-wide text-slate-800">
-          HPS <span className="text-blue-600">Fintax</span>
+          {/* Logo / Brand */}
+          <div className="text-3xl font-bold tracking-wide text-slate-800">
+            HPS <span className="text-blue-600">Fintax</span>
+          </div>
+
+          {/* Animated Bar */}
+          <div className="w-48 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+            <div className="h-full w-1/3 bg-blue-600 rounded-full animate-hps-loader" />
+          </div>
+
+          {/* Text */}
+          <div className="text-sm text-slate-600 tracking-wide">
+            Processing financial data…
+          </div>
         </div>
-
-        {/* Animated Bar */}
-        <div className="w-48 h-1.5 bg-slate-200 rounded-full overflow-hidden">
-          <div className="h-full w-1/3 bg-blue-600 rounded-full animate-hps-loader" />
-        </div>
-
-        {/* Text */}
-        <p className="text-sm text-slate-600 tracking-wide">
-          Processing financial data…
-        </p>
       </div>
-    </div>
     );
   }
 
-
+  /* ================= UI ================= */
   return (
     <div className="space-y-6">
       {/* HEADER */}
@@ -55,9 +62,9 @@ export default function EmployeeMyClient() {
         <h2 className="text-2xl font-semibold text-blue-600">
           My Clients
         </h2>
-        <p className="text-sm text-slate-500 mt-1">
+        <div className="text-sm text-slate-500 mt-1">
           Clients assigned to you
-        </p>
+        </div>
       </div>
 
       {/* CLIENT LIST */}
