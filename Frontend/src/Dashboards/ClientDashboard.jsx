@@ -29,21 +29,37 @@ export default function ClientDashboard() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
+    /* ================= FETCH DATA ================= */
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (!token) {
-      navigate("/");
+    const role = localStorage.getItem("role");
+
+    // 🔐 AUTH CHECK
+    if (!token || role !== "client") {
+      navigate("/login");
       return;
     }
 
-    axios
-      .get("https://hpsfintax-7.onrender.com/dashboard/client", {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      .then(res => setData(res.data))
-      .catch(() => navigate("/"));
-  }, [navigate]);
+    const fetchDashboard = async () => {
+      try {
+        const res = await axios.get(
+          "https://hpsfintax-7.onrender.com/dashboard/client",
+          {
+            headers: { Authorization: `Bearer ${token}` }
+          }
+        );
 
+        setData(res.data);
+      } catch (err) {
+        console.error("CLIENT DASHBOARD ERROR:", err);
+        navigate("/login");
+      } finally {
+        setLoading(false); // ✅ THIS WAS MISSING
+      }
+    };
+
+    fetchDashboard();
+  }, [navigate]);
   if (!data) {
     return <p className="text-center mt-20 text-slate-500">Loading...</p>;
   }

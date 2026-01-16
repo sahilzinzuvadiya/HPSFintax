@@ -9,6 +9,7 @@ export default function EmployeeMyClient() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+      setLoading(true);
     axios
       .get("https://hpsfintax-7.onrender.com/client/employee/clients", {
         headers: {

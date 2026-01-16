@@ -131,7 +131,7 @@ const SidebarContent = ({
   close
 }) => (
   <>
-    <div className="h-16 flex items-center justify-center border-b border-slate-700">
+    <div className="h-16 flex items-center justify-center border-b border-slate-700 max-sm:hidden">
       <span className="text-[22px] font-semibold tracking-wide">
         HPS <span className="text-blue-400">Fintax</span>
       </span>
