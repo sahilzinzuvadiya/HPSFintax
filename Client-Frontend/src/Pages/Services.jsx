@@ -591,7 +591,7 @@ export default function Services() {
           <SectionHeading dark={false} badge="Who We Help" title="Industries We Support"
             sub="Serving diverse sectors with tailored financial solutions" />
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-6">
             {industries.map((item, i) => (
               <motion.div key={i} custom={i} variants={cardVariants}
                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}

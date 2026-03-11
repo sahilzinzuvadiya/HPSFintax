@@ -623,7 +623,7 @@ export default function Home() {
             <div className="absolute -inset-3 bg-gradient-to-br from-violet-200 to-purple-100 rounded-3xl" />
             <div className="relative overflow-hidden rounded-2xl shadow-xl border border-violet-100">
               <img src="/homeAbout.jpg" alt="About"
-                className="w-full h-[360px] object-center group-hover:scale-105 transition-transform duration-700" />
+                className="w-full h-[340px] md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#2d1b69]/70 via-transparent to-transparent
                               opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100

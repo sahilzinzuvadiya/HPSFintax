@@ -599,7 +599,7 @@ export default function About() {
           <SectionHeading dark={false} badge="Who We Help" title="Industries We Serve"
             sub="Comprehensive consultancy across diverse sectors" />
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {industries.map((item, i) => (
               <motion.div key={i} custom={i} variants={cardVariants}
                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
