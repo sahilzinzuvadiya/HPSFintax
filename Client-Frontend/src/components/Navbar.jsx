@@ -424,10 +424,9 @@ export default function Navbar() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => {
-                    setMenuOpen(false);
-                    setTimeout(() => {
-                      window.location.href = "http://localhost:hps-fintax-zpiy.vercel.app";
-                    }, 200);
+                     window.location.href = "http://hps-fintax-zpiy.vercel.app"
+                      setMenuOpen(false);
+                    
                   }}
                   className="relative w-full py-3.5 rounded-xl font-semibold text-white text-[15px]
              bg-gradient-to-r from-violet-600 to-purple-600 overflow-hidden
