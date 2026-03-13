@@ -242,34 +242,34 @@
 //   );
 // }
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Home, Info, Briefcase, HelpCircle, Phone, LogIn, Menu, X, Zap
 } from "lucide-react";
 
 const navItems = [
-  { name: "Home",     path: "/",        icon: Home       },
-  { name: "About Us", path: "/about",   icon: Info       },
-  { name: "Services", path: "/service", icon: Briefcase  },
-  { name: "FAQ",      path: "/faq",     icon: HelpCircle },
-  { name: "Contact",  path: "/contact", icon: Phone      },
+  { name: "Home", path: "/", icon: Home },
+  { name: "About Us", path: "/about", icon: Info },
+  { name: "Services", path: "/service", icon: Briefcase },
+  { name: "FAQ", path: "/faq", icon: HelpCircle },
+  { name: "Contact", path: "/contact", icon: Phone },
 ];
 
 /* ── Variants ── */
 const navSlide = {
-  hidden:  { y: -72, opacity: 0 },
-  visible: { y: 0,   opacity: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
-  exit:    { y: -72, opacity: 0, transition: { duration: 0.28, ease: "easeIn" } },
+  hidden: { y: -72, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+  exit: { y: -72, opacity: 0, transition: { duration: 0.28, ease: "easeIn" } },
 };
 
 const logoVariants = {
-  hidden:  { x: -20, opacity: 0 },
-  visible: { x: 0,   opacity: 1, transition: { duration: 0.55, ease: "easeOut", delay: 0.1 } },
+  hidden: { x: -20, opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.55, ease: "easeOut", delay: 0.1 } },
 };
 
 const itemVariants = {
-  hidden:  { y: -10, opacity: 0 },
+  hidden: { y: -10, opacity: 0 },
   visible: (i) => ({
     y: 0, opacity: 1,
     transition: { duration: 0.4, ease: "easeOut", delay: 0.18 + i * 0.07 },
@@ -277,18 +277,18 @@ const itemVariants = {
 };
 
 const btnVariants = {
-  hidden:  { scale: 0.85, opacity: 0 },
-  visible: { scale: 1,    opacity: 1, transition: { duration: 0.4, ease: "easeOut", delay: 0.6 } },
+  hidden: { scale: 0.85, opacity: 0 },
+  visible: { scale: 1, opacity: 1, transition: { duration: 0.4, ease: "easeOut", delay: 0.6 } },
 };
 
 const drawerVariants = {
-  hidden:  { x: "100%" },
+  hidden: { x: "100%" },
   visible: { x: 0, transition: { type: "spring", stiffness: 300, damping: 30 } },
-  exit:    { x: "100%", transition: { duration: 0.28, ease: "easeIn" } },
+  exit: { x: "100%", transition: { duration: 0.28, ease: "easeIn" } },
 };
 
 const mobileItemVariants = {
-  hidden:  { x: 36, opacity: 0 },
+  hidden: { x: 36, opacity: 0 },
   visible: (i) => ({
     x: 0, opacity: 1,
     transition: { duration: 0.32, ease: "easeOut", delay: 0.08 + i * 0.07 },
@@ -298,6 +298,7 @@ const mobileItemVariants = {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -336,7 +337,7 @@ export default function Navbar() {
                        border-b border-violet-900/50
                        shadow-lg shadow-violet-950/30"
           >
-            <NavbarInner navItems={navItems} setMenuOpen={setMenuOpen} />
+            <NavbarInner navItems={navItems} setMenuOpen={setMenuOpen} navigate={navigate} />
             <GlowLine />
           </motion.nav>
         )}
@@ -344,7 +345,7 @@ export default function Navbar() {
 
       {/* ══════════ NORMAL NAVBAR ══════════ */}
       <nav className="relative bg-[#0f0a1e] border-b border-violet-900/40">
-        <NavbarInner navItems={navItems} setMenuOpen={setMenuOpen} />
+        <NavbarInner navItems={navItems} setMenuOpen={setMenuOpen} navigate={navigate} />
         <GlowLine />
       </nav>
 
@@ -423,7 +424,10 @@ export default function Navbar() {
                 <motion.button
                   whileHover={{ scale: 1.02, boxShadow: "0 8px 28px rgba(124,58,237,0.40)" }}
                   whileTap={{ scale: 0.97 }}
-                  onClick={() => { window.location.href = "http://localhost:5173/"; setMenuOpen(false); }}
+                  onClick={() => {
+                    navigate("/");
+                    setMenuOpen(false);
+                  }}
                   className="relative w-full py-3.5 rounded-xl font-semibold text-white text-[15px]
                              bg-gradient-to-r from-violet-600 to-purple-600 overflow-hidden
                              flex items-center justify-center gap-2 shadow-lg shadow-violet-950/40"
@@ -452,14 +456,14 @@ function GlowLine() {
 }
 
 /* ── Shared Navbar Inner ── */
-function NavbarInner({ navItems, setMenuOpen }) {
+function NavbarInner({ navItems, setMenuOpen, navigate }) {
   return (
     <div className="relative max-w-7xl mx-auto px-4 md:px-6 py-2.5 flex items-center justify-between">
 
       {/* LOGO */}
       <motion.div variants={logoVariants} initial="hidden" animate="visible"
         className="flex items-center gap-2.5">
-        
+
         <img
           src="/logo1.png"
           alt="HPS Logo"
@@ -527,7 +531,7 @@ function NavbarInner({ navItems, setMenuOpen }) {
         <motion.button
           whileHover={{ scale: 1.04, boxShadow: "0 8px 28px rgba(124,58,237,0.45)" }}
           whileTap={{ scale: 0.96 }}
-          onClick={() => { window.location.href = "http://localhost:5173/"; }}
+          onClick={() => navigate("/")}
           className="relative px-5 py-2.5 rounded-xl text-[14px] font-semibold
                      bg-gradient-to-r from-violet-600 to-purple-600
                      text-white flex items-center gap-2 overflow-hidden
