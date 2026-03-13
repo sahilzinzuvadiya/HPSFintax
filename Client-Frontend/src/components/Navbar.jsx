@@ -421,19 +421,20 @@ export default function Navbar() {
               {/* Drawer Login */}
               <div className="px-4 pb-8">
                 <motion.button
-                  whileHover={{ scale: 1.02, boxShadow: "0 8px 28px rgba(124,58,237,0.40)" }}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => {
-                    navigate("/login");
                     setMenuOpen(false);
+                    setTimeout(() => {
+                      navigate("/");
+                    }, 200);
                   }}
                   className="relative w-full py-3.5 rounded-xl font-semibold text-white text-[15px]
-                             bg-gradient-to-r from-violet-600 to-purple-600 overflow-hidden
-                             flex items-center justify-center gap-2 shadow-lg shadow-violet-950/40"
+             bg-gradient-to-r from-violet-600 to-purple-600 overflow-hidden
+             flex items-center justify-center gap-2 shadow-lg shadow-violet-950/40"
                 >
-                  <span className="absolute inset-0 nav-shimmer" />
-                  <LogIn size={18} className="relative" />
-                  <span className="relative">Login to Portal</span>
+                  <LogIn size={18} />
+                  Login to Portal
                 </motion.button>
               </div>
             </motion.aside>
