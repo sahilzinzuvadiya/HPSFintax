@@ -426,7 +426,7 @@ export default function Navbar() {
                   onClick={() => {
                     setMenuOpen(false);
                     setTimeout(() => {
-                      navigate("/");
+                      window.location.href = "http://localhost:5173";
                     }, 200);
                   }}
                   className="relative w-full py-3.5 rounded-xl font-semibold text-white text-[15px]
@@ -531,7 +531,7 @@ function NavbarInner({ navItems, setMenuOpen, navigate }) {
         <motion.button
           whileHover={{ scale: 1.04, boxShadow: "0 8px 28px rgba(124,58,237,0.45)" }}
           whileTap={{ scale: 0.96 }}
-          onClick={() => navigate("/")}
+          onClick={() => window.location.href = "http://localhost:5173"}
           className="relative px-5 py-2.5 rounded-xl text-[14px] font-semibold
                      bg-gradient-to-r from-violet-600 to-purple-600
                      text-white flex items-center gap-2 overflow-hidden
