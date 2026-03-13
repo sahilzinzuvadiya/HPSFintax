@@ -369,21 +369,20 @@ export default function Navbar() {
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-violet-900/40">
-                {/* <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500
-                                  flex items-center justify-center shadow-md shadow-violet-900/40">
-                    <Zap size={14} className="text-white" />
-                  </div>
-                  <span className="text-white font-bold tracking-tight text-lg">Menu</span>
-                </div> */}
+
+                <span className="text-white font-semibold text-lg">
+                  Menu
+                </span>
+
                 <motion.button
                   whileTap={{ scale: 0.88 }}
                   onClick={() => setMenuOpen(false)}
                   className="p-2 rounded-xl bg-white/5 hover:bg-white/10 transition
-                             text-slate-400 hover:text-white"
+               text-slate-400 hover:text-white"
                 >
                   <X size={20} />
                 </motion.button>
+
               </div>
 
               {/* Drawer Nav Items */}
@@ -425,7 +424,7 @@ export default function Navbar() {
                   whileHover={{ scale: 1.02, boxShadow: "0 8px 28px rgba(124,58,237,0.40)" }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => {
-                    navigate("/");
+                    navigate("/login");
                     setMenuOpen(false);
                   }}
                   className="relative w-full py-3.5 rounded-xl font-semibold text-white text-[15px]
