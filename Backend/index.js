@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
 app.use("/auth", require("./route/authroute"));
 app.use("/client", require("./route/Clientroute"));
 app.use("/dashboard", require("./route/Dashboardroute"));
+app.use("/contact", require("./route/Contactroute"));
 
 
 /* ================= SERVER ================= */

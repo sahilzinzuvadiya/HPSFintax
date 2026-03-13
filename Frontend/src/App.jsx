@@ -31,6 +31,7 @@ import ClientDashboard from "./Dashboards/ClientDashboard";
 /* TOAST */
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Contact from "./Pages/Contact";
 
 export default function App() {
   return (
@@ -38,14 +39,17 @@ export default function App() {
 
       {/* ================= TOAST ================= */}
       <ToastContainer
-        position="right"
+        position="top-right"
         autoClose={2500}
         hideProgressBar={false}
         newestOnTop
         closeOnClick
-        pauseOnHover
+        pauseOnHover={false}
+        draggable={false}
+        limit={3}
         theme="light"
       />
+
 
       <Routes>
         {/* ================= AUTH ================= */}
@@ -62,6 +66,7 @@ export default function App() {
           <Route path="create-employee" element={<CreateEmployee />} />
           <Route path="create-client" element={<CreateClient />} />
           <Route path="client-requests" element={<ClientRequest />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
 
         {/* ================= EMPLOYEE ================= */}

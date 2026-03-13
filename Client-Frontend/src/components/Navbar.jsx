@@ -368,13 +368,13 @@ export default function Navbar() {
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-violet-900/40">
-                <div className="flex items-center gap-2.5">
+                {/* <div className="flex items-center gap-2.5">
                   <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500
                                   flex items-center justify-center shadow-md shadow-violet-900/40">
                     <Zap size={14} className="text-white" />
                   </div>
                   <span className="text-white font-bold tracking-tight text-lg">Menu</span>
-                </div>
+                </div> */}
                 <motion.button
                   whileTap={{ scale: 0.88 }}
                   onClick={() => setMenuOpen(false)}
@@ -459,19 +459,11 @@ function NavbarInner({ navItems, setMenuOpen }) {
       {/* LOGO */}
       <motion.div variants={logoVariants} initial="hidden" animate="visible"
         className="flex items-center gap-2.5">
-        <div className="relative">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500
-                          flex items-center justify-center shadow-lg shadow-violet-900/50">
-            <Zap size={16} className="text-white" />
-          </div>
-          {/* pulse dot */}
-          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full
-                           bg-fuchsia-400 border-2 border-[#0f0a1e] animate-pulse" />
-        </div>
+        
         <img
           src="/logo1.png"
           alt="HPS Logo"
-          className="h-10 md:h-14 lg:h-16 w-auto object-contain brightness-200"
+          className="h-12 md:h-14 lg:h-16 w-auto object-contain brightness-200"
           onError={(e) => { e.target.style.display = "none"; }}
         />
       </motion.div>
@@ -530,7 +522,7 @@ function NavbarInner({ navItems, setMenuOpen }) {
       <motion.div variants={btnVariants} initial="hidden" animate="visible"
         className="hidden md:flex items-center gap-3">
         {/* divider */}
-        <div className="w-px h-6 bg-violet-900" />
+        {/* <div className="w-px h-6 bg-violet-900" /> */}
 
         <motion.button
           whileHover={{ scale: 1.04, boxShadow: "0 8px 28px rgba(124,58,237,0.45)" }}

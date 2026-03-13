@@ -6,7 +6,8 @@ import {
   UserPlus,
   LogOut,
   Menu,
-  X
+  X,
+  Phone
 } from "lucide-react";
 import {
   Link,
@@ -201,6 +202,14 @@ const SidebarContent = ({
         label="Clients"
         to="/admin/clients"
         active={isStartsWith("/admin/clients")}
+        close={close}
+      />
+
+       <MenuItem
+        icon={<Phone size={18} />}
+        label="ContactEnquiry"
+        to="/admin/contact"
+        active={isStartsWith("/admin/contact")}
         close={close}
       />
     </nav>

@@ -17,7 +17,7 @@ const submit = async () => {
 
   try {
     const res = await axios.post(
-      "https://hpsfintax-7.onrender.com/auth/login",
+      "http://localhost:1005/auth/login",
       {
         email: form.email.trim(),
         password: form.password

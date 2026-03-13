@@ -44,7 +44,7 @@ export default function AdminDashboard() {
     const fetchStats = async () => {
       try {
         const res = await axios.get(
-          "https://hpsfintax-7.onrender.com/dashboard/stats",
+          "http://localhost:1005/dashboard/stats",
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token")
